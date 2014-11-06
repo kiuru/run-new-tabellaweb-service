@@ -12,7 +12,11 @@ if '%errorlevel%' NEQ '0' (
 	echo Permission denied! Administrators privileges required. %ServiceName%
 	PAUSE
 	exit /B
-)
+) else ( goto gotAdmin )
+
+:gotAdmin
+	pushd "%CD%"
+	CD /D "%~dp0"
 :--------------------------------------
 REM ## Administrator permission request source: http://stackoverflow.com/a/10052222
 
