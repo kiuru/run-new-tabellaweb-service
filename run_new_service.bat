@@ -22,7 +22,7 @@ REM ## Administrator permission request source: http://stackoverflow.com/a/10052
 
 REM ## Create new service to register
 sc delete %ServiceName%
-sc create %ServiceName% binPath= %CD%\srvany.exe start= auto
+sc create %ServiceName% binPath= %CD%\nssm.exe start= auto
 sc description %ServiceName% "%ServiceName% -palvelinohjelma"
 reg add "HKLM\SYSTEM\CurrentControlSet\Services\%ServiceName%\Parameters" /v "Application" /d "%CD%\TABELLA.exe" /f
 reg add "HKLM\SYSTEM\CurrentControlSet\Services\%ServiceName%\Parameters" /v "AppDirectory" /d "%CD%" /f
